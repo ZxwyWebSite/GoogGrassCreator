@@ -1,0 +1,40 @@
+@charset "utf-8";::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{border-radius:10px}::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.3)}
+#eback {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+#ebar {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 25px 30px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+}
+#ebar p {
+    margin: 16px 0;
+}
+body {
+    background-color: azure;
+    /*font-family: 'ZxwyWebSite front';*/
+}
+.layui-textarea {
+    height: 200px;
+}
+.layui-field-box {
+    background-color: #fff;
+}
+.layui-btn-primary {
+    border-color: #eee;
+    background: #fff;
+}

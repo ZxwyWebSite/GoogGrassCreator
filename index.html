@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zxwy生草机</title>
+    <meta name="keywords" content="Zxwy生草机,Zxwy,子虚乌有,zxwy.tk" />
+    <meta name="description" content="Zxwy生草机，把一段文字变得生草。由谷歌翻译提供支持。——ZxwyWebSiteProject.ZxwyGGC" />
+    <link rel="shortcut icon" href="logo2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!--加载JS-->
+    <script src="main.js"></script>
+    <script src="layui/layui.js"></script>
+    </div>
+    <!--弹层动画-->
+    <div id="eback" hidden=""></div>
+    <div id="ebar" hidden="">
+        <svg class="loadimg" version="1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="transform:scale(2)"><style>@keyframes rotate{0%{transform:rotate(0deg)}to{transform:rotate(360deg)}}@keyframes fillunfill{0%{stroke-dashoffset:32.3}50%{stroke-dashoffset:0}to{stroke-dashoffset:-31.9}}@keyframes rot{0%{transform:rotate(0deg)}to{transform:rotate(-360deg)}}@keyframes colors{0%,to{stroke:#1E9FFF}}</style><g style="animation-duration:1568.63ms;animation-iteration-count:infinite;animation-name:rotate;animation-timing-function:linear;transform-origin:50% 50%;width:16px;height:16px"><path fill="none" d="M8 1.125A6.875 6.875 0 1 1 1.125 8" stroke-width="2.25" stroke-linecap="round" style="animation-duration:1333ms,5332ms,5332ms;animation-fill-mode:forwards;animation-iteration-count:infinite,infinite,infinite;animation-name:fillunfill,rot,colors;animation-play-state:running,running,running;animation-timing-function:cubic-bezier(.4,0,.2,1),steps(4),linear;transform-origin:50% 50%" stroke-dasharray="32.4" stroke-dashoffset="32.4"></path></g></svg>
+        <p>生草中，请稍后...</p>
+    </div>
+    <!--顶栏-->
+    <div class="layui-container">
+        <br><div style="text-align: center;"><h2>Zxwy生草机_v1.0 - build_2023-01-30</h2></div>
+        <div class="layui-progress" style="margin: 15px 0 30px;">
+        <div class="layui-progress-bar" lay-percent="100%"></div>
+    </div>
+    <!--表单-->
+    <form class="layui-form" action="">
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-xs6">
+                <div class="layui-form-item">
+                输入：
+                    <textarea name="intxt" id="intxt" placeholder="源" class="layui-textarea" lay-verify="required"></textarea>
+                </div>
+            </div>
+            <div class="layui-col-xs6">
+                <div class="layui-form-item">
+                输出：
+                    <textarea name="totxt" id="totxt" placeholder="草" class="layui-textarea" readonly=""></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-md4">
+                <div class="layui-form-item">
+                语言：
+                    <select name="lang" id="lang" lay-verify="required">
+                        <option value="">原文语言</option>
+                        <option value="zh">中文（zh）</option>
+                        <option value="en">英语（en）</option>
+                        <option value="ja">日语（ja）</option>
+                        <!--<option value="3"></option>
+                        <option value="4"></option>-->
+                    </select>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-form-item">
+                次数：
+                    <select name="force" id="force" lay-verify="required">
+                        <option value="">生草力度</option>
+                        <option value="2">02次</option>
+                        <option value="4">04次</option>
+                        <option value="6">06次</option>
+                        <option value="8">08次</option>
+                        <option value="10">10次</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-form-item">
+                生草：
+                    <button class="layui-btn layui-btn-primary layui-btn-fluid" lay-submit lay-filter="makegrass">立即生草！</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--备注-->
+    <div class="layui-row">
+        备注：
+        <fieldset class="layui-elem-field">
+            <div class="layui-field-box">
+            使用方法：
+                <p>1. 输入一段文字</p>
+                <p>2. 选择原文语言</p>
+                <p>3. 选择翻译次数</p>
+                <p>4. 点击立即生草</p>
+                <br>
+            开源地址：
+                <a href="https://github.com/ZxwyWebSite/GoogGrassCreator" target="_blank" rel="noopener noreferrer">https://github.com/ZxwyWebSite/GoogGrassCreator</a>
+            </div>
+            </div>
+        </fieldset>
+    </div>
+    <!--页脚-->
+    <div class="layui-container">        
+        <div class="layui-progress" style="margin: 15px 0 30px;">
+        <div class="layui-progress-bar" lay-percent="100%"></div>
+        <br><div style="text-align: center;"><h3>© 2021-2023 ZxwyWebSite All rights reserved.</h3></div>
+    </div>
+    <!--基础JS-->
+    <script>
+      layui.use('form', function(){
+        var form = layui.form;
+        form.on('submit(makegrass)', function(data){
+          //layer.msg(JSON.stringify(data.field));
+          growgrass();
+          return false;
+        });
+      });
+      /*
+      layui.use('layer', function(){
+        var layer = layui.layer;
+        //layer.msg('hello');
+      });
+      layui.use('element', function(){
+        var element = layui.element;
+        element.on('tab(demo)', function(data){
+            console.log(data);
+        });
+      });
+      */
+      console.log('须弥空荡荡，草神在人间。欢迎使用Zxwy生草机');
+    </script>
+</body>
+</html>
